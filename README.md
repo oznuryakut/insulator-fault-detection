@@ -1,6 +1,6 @@
 # ⚡ Yüksek Gerilim İzolatörlerinde Hata Tespiti
 
-Derin öğrenme tabanlı YOLOv8 **segmentasyon** modeli ve PySide6 arayüzü ile yüksek gerilim izolatörlerindeki fiziksel hasarları gerçek zamanlı olarak tespit eden masaüstü uygulaması.
+Derin öğrenme tabanlı YOLOv8 modeli ve PySide6 arayüzü ile yüksek gerilim izolatörlerindeki fiziksel hasarları gerçek zamanlı olarak tespit eden masaüstü uygulaması.
 
 ---
 
@@ -88,10 +88,9 @@ Confidence eşiği slider ile 0.10 – 1.00 arasında ayarlanabilir.
 ## 🤖 Model
 
 - Mimari: **YOLOv8 Segmentation**
-- Etiket türü: **Polygon (instance segmentation)**
+- Etiket türü: **BBOX ve Polygon (instance segmentation)**
 - Eğitim ortamı: Google Colab
-- Girdi: Kamera karesi veya statik görsel
-- Çıktı: Polygon maskesi + sınıf etiketi + confidence skoru
+
 
 ---
 
@@ -106,7 +105,12 @@ Confidence eşiği slider ile 0.10 – 1.00 arasında ayarlanabilir.
 | Python 3.10+ | Ana dil |
 
 ---
+<img width="628" height="657" alt="7B0AC5A9-C859-4B2A-BEF6-A12CE09C34A1_1_201_a" src="https://github.com/user-attachments/assets/073e5101-4582-48de-95c5-24c65666ee1e" />
+<img width="622" height="646" alt="3CF5D77C-E52A-4BAD-A385-DC1B3331FB0E_1_201_a" src="https://github.com/user-attachments/assets/489e7d68-8a2c-44cf-9b4f-1fd7a4b54862" />
 
-## 📄 Lisans
 
-MIT License
+
+
+
+
+
