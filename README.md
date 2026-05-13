@@ -39,7 +39,7 @@ The model was trained on **Google Colab** using the YOLOv8 segmentation architec
 ```python
 from ultralytics import YOLO
 model = YOLO("yolov8n-seg.pt")
-model.train(data="data.yaml", epochs=100, imgsz=640)
+model.train(data="data.yaml", epochs=200, imgsz=640)
 ```
 
 ---
