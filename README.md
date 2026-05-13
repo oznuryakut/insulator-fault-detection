@@ -1,108 +1,118 @@
-# ⚡ Yüksek Gerilim İzolatörlerinde Hata Tespiti
+# ⚡ High Voltage Insulator Fault Detection
 
-Derin öğrenme tabanlı YOLOv8 modeli ve PySide6 arayüzü ile yüksek gerilim izolatörlerindeki fiziksel hasarları gerçek zamanlı olarak tespit eden masaüstü uygulaması.
-
----
-
-## 🖥️ Arayüz Özellikleri
-
-- Gerçek zamanlı kamera akışı üzerinde anlık nesne tespiti
-- Fotoğraf çekme ve yerel görsel yükleme desteği
-- Ayarlanabilir confidence threshold (slider ile)
-- Tespit sonuçlarının **polygon maskesi** olarak görselleştirilmesi
-- Koyu tema, sezgisel buton düzeni
+A desktop application that detects physical damage on high voltage insulators in real-time using a YOLOv8 deep learning model and a PySide6 interface.
 
 ---
 
-## 📁 Proje Yapısı
+## 🖥️ Interface Features
+
+- Real-time object detection on live camera stream
+- Photo capture and local image upload support
+- Adjustable confidence threshold (via slider)
+- Detection results visualized as **polygon masks**
+- Dark theme with an intuitive button layout
+
+---
+
+## 📁 Project Structure
 
 ```
-├── best.pt          # Eğitilmiş YOLOv8 segmentasyon model ağırlıkları
-├── app.py           # PySide6 masaüstü arayüzü
+├── best.pt          # Trained YOLOv8 segmentation model weights
+├── app.py           # PySide6 desktop application
 └── README.md
 ```
 
 ---
 
-## 🗂️ Veri Seti
+## 🗂️ Dataset
 
-- **Görsel sayısı:** ~3.000 adet
-- **Etiketleme türü:** Polygon (instance segmentation)
-- **Hedef:** Yüksek gerilim izolatörlerindeki fiziksel hasarlar
+- **Number of images:** ~3,000
+- **Annotation type:** Polygon (instance segmentation)
+- **Target:** Physical damage on high voltage insulators
 
 ---
 
-## 🧠 Model Eğitimi
+## 🧠 Model Training
 
-Model **Google Colab** üzerinde YOLOv8 segmentasyon mimarisi kullanılarak eğitilmiştir.
+The model was trained on **Google Colab** using the YOLOv8 segmentation architecture.
 
 ```python
 from ultralytics import YOLO
-
 model = YOLO("yolov8n-seg.pt")
 model.train(data="data.yaml", epochs=100, imgsz=640)
 ```
 
 ---
 
-## 🚀 Kurulum
+## 🚀 Installation
 
-### Gereksinimler
+### Prerequisites
 
 - Python 3.10+
-- CUDA destekli GPU (opsiyonel, CPU ile de çalışır)
+- CUDA-compatible GPU (optional, also works on CPU)
 
-### Adımlar
+### Steps
 
 ```bash
-# Repoyu klonla
+# Clone the repository
 git clone https://github.com/oznuryakut/yuksek-gerilim-izolator-hata-tespiti.git
 cd yuksek-gerilim-izolator-hata-tespiti
 
-# Sanal ortam oluştur
+# Create a virtual environment
 python -m venv venv
 source venv/bin/activate  # Windows: venv\Scripts\activate
 
-# Bağımlılıkları yükle
+# Install dependencies
 pip install ultralytics PySide6 opencv-python
 ```
 
 ---
 
-## ▶️ Kullanım
+## ▶️ Usage
 
 ```bash
 python app.py
 ```
 
-1. **Kamerayı Başlat** → Webcam akışını başlatır
-2. **Fotoğraf Çek** → Mevcut kareyi dondurur
-3. **Görsel Ekle** → Diskten görsel yükler
-4. **Kullan ve Analiz Et** → Model çıkarımı yapar, polygon maskelerini gösterir
-5. **Tekrar Çek** → Sıfırlar
+1. **Start Camera** → Launches the webcam stream
+2. **Take Photo** → Freezes the current frame
+3. **Upload Image** → Loads an image from disk
+4. **Analyze** → Runs model inference and displays polygon masks
+5. **Retake** → Resets the view
 
-Confidence eşiği slider ile 0.10 – 1.00 arasında ayarlanabilir.
+The confidence threshold can be adjusted between 0.10 and 1.00 using the slider.
 
 ---
 
 ## 🤖 Model
 
-- Mimari: **YOLOv8 Segmentation**
-- Etiket türü: **BBOX ve Polygon (instance segmentation)**
-- Eğitim ortamı: Google Colab
-
+- Architecture: **YOLOv8 Segmentation**
+- Annotation type: **BBOX and Polygon (instance segmentation)**
+- Training environment: Google Colab
 
 ---
 
-## 🛠️ Teknolojiler
+## 🛠️ Tech Stack
 
-| Teknoloji | Kullanım |
-|-----------|----------|
+| Technology | Usage |
+|------------|-------|
 | YOLOv8-seg (Ultralytics) | Instance segmentation |
-| PySide6 | Masaüstü GUI |
-| OpenCV | Görüntü işleme |
-| Google Colab | Model eğitimi |
-| Python 3.10+ | Ana dil |
+| PySide6 | Desktop GUI |
+| OpenCV | Image processing |
+| Google Colab | Model training |
+| Python 3.10+ | Core language |
+
+---
+
+## 👩‍💻 Developer
+
+**Öznur Yakut**  
+[![GitHub](https://img.shields.io/badge/GitHub-oznuryakut-181717?style=flat&logo=github)](https://github.com/oznuryakut)
+
+---
+
+> © 2025 Öznur Yakut
+
 
 ---
 <img width="628" height="657" alt="7B0AC5A9-C859-4B2A-BEF6-A12CE09C34A1_1_201_a" src="https://github.com/user-attachments/assets/073e5101-4582-48de-95c5-24c65666ee1e" />
